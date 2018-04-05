@@ -67,3 +67,32 @@ var declareChampion = function (player1Score, player2Score) {
         endGame();
     }
 };
+// User Interface Logic
+$(document).ready(function(){
+    // Function for Roll Button
+    $("#roll-button").click(function(){
+        currentRoll=getRandomInt(1,7);
+        showDice(currentRoll);
+        checkIfOne(currentRoll);
+        $("#total-score").text(totalScore);
+    });
+    // Function for Hold Button
+    $("#hold-button").click(function (){
+        if (player1Turn){
+            player1 += totalScore;
+            $("#player1-total").text(player1);
+            $("#player2-score").addClass("highlight");
+            $("#player1-score").removeclass("highlight");
+            player1Turn = false;
+        }else {
+            player2 += totalScore
+            $("#player2-total").text(player2);
+            $("#player1-score").addClass("highlight");
+            $("#player2-score").removeclass("highlight");
+            player1Turn = true;
+        }
+        totalScore = 0;
+        $("#total-score").text(totalScore);
+        declareChampion(player1, player2)
+    });
+});

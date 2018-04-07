@@ -1,98 +1,95 @@
-// Business Logic
+var count = 0,
+    newScore, finalScore = 0,
+    index = 0;
 
-var player1= 0;
-var player2= 0;
-var player1= true;
-var totalScore = 0;
-var currentRoll;
-
-var Dice = { 1, 2, 3, 4, 5, 6 };
-
-// Functions
-var getRandomInt = function (min, max){
-    return Math.floor(Math.random() * (max-min))+ min;
-};
-
-var showDice = function(currentNumber) {
-   $("roll-dice").empty();
-   if (currentNumber ===1) {
-       $(#roll-dice).append(Dice1 )
-    } else if (currentNumber ===2) {
-        $(#roll-dice).append(Dice2 )
-     } else if (currentNumber ===3) {
-        $(#roll-dice).append(Dice3 )
-     } else if (currentNumber ===4) {
-        $(#roll-dice).append(Dice4 )
-     } else if (currentNumber ===5) {
-        $(#roll-dice).append(Dice5 )
-     } else if (currentNumber ===6) {
-        $(#roll-dice).append(Dice6 )
-     }
-};
-
-var checkIfOne = function (currentNumber){
-    if (currentNumber ===1) {
-        totalScore = 0;
-        $("#total-score").text(totalScore);
-
-        if (player1Turn){
-            $("#player1-total").text(player1);
-            $("#player2-score").addClass("highlight");
-            $("#player1-score").removeClass("highlight");
-            player1Turn = false;
-        } else {
-            $("player2-total").text(player2);
-            $("player1-score").addClass ("highlight");
-            $("player2-score").removeClass ("highlight");
-            player1Turn = true ;
-        }
-    }else {
-        totalScore += currentRoll;
+function Player(playerName, score, totalScore) {
+    this.playerNames = playerName;
+    this.playerScores = score;
+    this.totalScores = totalScore;
+}
+var rollDice = function () {
+    result = Math.floor(Math.random() * 6) + 1;
+    return result;
+}
+Player.prototype.AddScores = function (currentScore) {
+    if (currentScore === 1) {
+        this.playerScores = 0;
+    } else if (currentScore !== 1) {
+        this.playerScores = this.playerScores + currentScore;
     }
-};
-var endGame = function() {
-    player1 = 0;
-    player2= 0;
-    totalScore= 0;
-    $("#player1-total").text(player1);
-    $("#player2-total").text(player2);
-};
+    return this.playerScores;
+}
+Player.prototype.Total = function (total) {
+    return this.totalScores = this.totalScores + total;
+}
+$(document).ready(function () {
+    var playerArray = [];
+    $("#player-names").submit(function (event) {
+        event.preventDefault();
+        var inputName = $("#name-player").val();
+        var newPlayer = new Player(inputName, 0, 0);
+        playerArray.push(newPlayer);
+        count++;
+        // console.log(playerArray);
+        $("#name" + count).append("<h2> Player:" + newPlayer.playerNames + "</h2>");
 
-var declareChampion = function (player1Score, player2Score) {
-    if (player1 >= 100) {
-        alert("Champion PLAYER1");
-        endGame();
-    } else if (player2 >=100) {
-        alert ("Champion PLAYER2");
-        endGame();
-    }
-};
-// User Interface Logic
-$(document).ready(function(){
-    // Function for Roll Button
-    $("#roll-button").click(function(){
-        currentRoll=getRandomInt(1,7);
-        showDice(currentRoll);
-        checkIfOne(currentRoll);
-        $("#total-score").text(totalScore);
-    });
-    // Function for Hold Button
-    $("#hold-button").click(function (){
-        if (player1Turn){
-            player1 += totalScore;
-            $("#player1-total").text(player1);
-            $("#player2-score").addClass("highlight");
-            $("#player1-score").removeclass("highlight");
-            player1Turn = false;
-        }else {
-            player2 += totalScore
-            $("#player2-total").text(player2);
-            $("#player1-score").addClass("highlight");
-            $("#player2-score").removeclass("highlight");
-            player1Turn = true;
+        if (count > 2) {
+            alert("Players cannot exceed 2!");
+            $(".names").empty();
+            playerArray = [];
+            count = 0;
+            console.log(playerArray)
         }
-        totalScore = 0;
-        $("#total-score").text(totalScore);
-        declareChampion(player1, player2)
+        $("#name-player").val("");
     });
+    $("#roll").click(function () {
+        var playerTurn;
+        var randomNo = rollDice();
+        var findPlayer = playerArray[index];
+        findPlayer.AddScores(randomNo);
+        if (randomNo == 1 && index == 0) {
+            $("#name" + (index + 1) + " h4").text("This Round: 0");
+            $("#name" + (index + 1) + " h1").text("Dice Value: 0");
+            index = 1;
+            playerTurn = playerArray[index];
+            alert("Oooops, You rolled a 1. " + playerTurn.playerNames + "'s turn");
+        } else if (randomNo == 1 && index == 1) {
+            $("#name" + (index + 1) + " h4").text("This Round: 0");
+            $("#name" + (index + 1) + " h1").text("Dice Value: 0");
+            index = 0;
+            playerTurn = playerArray[index];
+            alert("Oooops, You rolled a 1. " + playerTurn.playerNames + "'s turn");
+        } else if (randomNo > 1) {
+            newScore = findPlayer.playerScores;
+            $("#name" + (index + 1) + " h1").text("Dice Value: " + randomNo);
+            $("#name" + (index + 1) + " h4").text("This Round: " + newScore);
+        }
+        console.log(randomNo + " " + index + " " + newScore);
+    });
+    $("#hold").click(function () {
+        var findPlayer = playerArray[index];
+        newScore = findPlayer.playerScores;
+        findPlayer.Total(newScore);
+        finalScore = findPlayer.totalScores;
+        console.log(finalScore);
+        //Make the total become 0;//Final score, This Round, Dice Value
+        findPlayer.playerScores = 0;
+        $("#name" + (index + 1) + " h1").text("Dice Value: 0");
+        $("#name" + (index + 1) + " h4").text("This Round: 0");
+        $("#name" + (index + 1) + " h5").text("Final score: " + finalScore);
+        if (finalScore > 50) alert(findPlayer.playerNames + " has won!!");
+        if (index == 0) {
+            index = 1;
+        } else if (index == 1) {
+            index = 0;
+        }
+    });
+    $("#start").click(function () {
+        count = 0;
+        newScore;
+        finalScore = 0;
+        index = 0;
+        playerArray = [];
+        $(".names").empty();
+    })
 });

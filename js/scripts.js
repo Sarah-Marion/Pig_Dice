@@ -1,3 +1,4 @@
+// Business Logic
 var count = 0,
     newScore, finalScore = 0,
     index = 0;
@@ -22,6 +23,9 @@ Player.prototype.AddScores = function (currentScore) {
 Player.prototype.Total = function (total) {
     return this.totalScores = this.totalScores + total;
 }
+
+
+// User Interface
 $(document).ready(function () {
     var playerArray = [];
     $("#player-names").submit(function (event) {

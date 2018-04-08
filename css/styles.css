@@ -1,71 +1,201 @@
-.container  {
-  display: table;
+body,
+html {
+    background-image: url("../images/choose.png");
+    background-size: cover;
+    position: relative;
+    height: 100%;
+    font-family: 'Chicle';
+}
+
+.jumbotron {
+    background: url("../images/die.png");
+    background-position: center;
+    background-size: cover;
+    margin-top: 0%;
+    text-align: center;
+    padding: 3em;
+    color: white;
+    /* border-color: #2e6da4; */
+    border-radius: 25px;
+}
+
+.jumbotron-transparent {
+    background: url("../images/die.png");
+    background-position: center;
+    margin-top: 2%;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.fixed-top {
+    padding-right: 0;
+    padding-left: 0;
+    opacity: 1;
+}
+
+.header-word {
+    background-size: 30px, 20px;
+}
+
+.header-word:hover {
+    color: #D6B831;
+}
+
+.close .closebtn {
+    position: absolute;
+    top: 0.2em;
+    right: 0.5em;
+    font-size: 70px;
+    text-decoration: none;
+}
+
+.menutop {
+    background-color: rgba(97, 5, 5, 0.247);
+    height: 70vh;
+    transition: 0.5s;
+    position: fixed;
+    z-index: 5;
+    overflow-x: hidden;
+    width: 0;
+    color: white;
+}
+input.form-control{
+    width: 30%;
+}
+.form-group{
+    display: flex;
+    justify-content: center;
+}
+.menutop-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.menutop a {
+    padding: 0;
+    text-decoration: none;
+    font-size: 70px;
+    color: #000000;
+    display: block;
+    transition: 0.3s;
+    font-family: 'Caveat';
+}
+
+.menutop a:hover,
+.menutop a:focus {
+    color: rgb(247, 247, 247);
+    font-family: 'Covered By Your Grace';
+    transform-style: 0.5s;
+}
+
+.menutop .closebtn {
+    position: absolute;
+    top: 1em;
+    right: 2em;
+    font-size: 70px;
+}
+
+.container {
+    display: table;
+}
+
+.container-fluid {
+    margin: 0;
+    padding-left: 0;
 }
 
 .col1 {
-  width: 50%;
-  text-align: center;
-  float: left;
-  padding: 10px;
-  border-right: 2px solid #A8A8A8;
+    width: 50%;
+    text-align: center;
+    float: left;
+    padding: 1%;
+    border-right: 2px solid #A8A8A8;
 }
 
 .col2 {
-  width: 50%;
-  text-align: center;
-  float: right;
-  padding: 25px;
+    width: 50%;
+    text-align: center;
+    float: right;
+    padding: 1%;
+}
+
+.content {
+    height: 10vh;
 }
 
 .btn {
-  padding: 10px;
+    padding: 1%;
+}
+
+.red {
+    background-color: rgba(255, 0, 0, 0.329);
+    color: white;
+}
+
+.green {
+    background-color: rgba(0, 128, 0, 0.514);
+    color: white;
 }
 
 .game {
-  display: none;
+    display: none;
+    color: #D6B831;
 }
 
 .player2 {
-  display: none;
+    display: none;
 }
 
-.player1-victory, .player2-victory {
-  display: none;
-  text-align: center;
+.player1-winner,
+.player2-winner {
+    display: none;
+    text-align: center;
+    color: #D6B831;
 }
 
-
-.player1-scored1, .player2-scored1 {
-  display: none;
-  padding: 20px;
-  text-align: center;
+.player1-scored1,
+.player2-scored1 {
+    display: none;
+    padding: 20px;
+    text-align: center;
+    width: 50vw;
 }
 
-
-
-.form-hider {
-  text-align: center;
+.form-hidden {
+    text-align: center;
 }
 
-.header {
-  text-align: center;
-  padding: 5px;
-  background-color: #337ab7;
-  color: white;
-  border-color: #2e6da4;
-  border-radius: 25px;
-}
-
-.rules  {
-  width: 100%;
-  padding: 10px;
-  background-color: #337ab7;
-  color: white;
-  border-color: #2e6da4;
-  border-radius: 25px;
-  text-align: center;
+.rules {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(97, 5, 5);
+    color: white;
+    /* border-color: #2e6da4; */
+    border-radius: 25px;
+    text-align: center;
 }
 
 .playToScore {
-  text-align: center;
+    text-align: center;
+    color: white;
+}
+.list-inline a {
+    color: #D6B831;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    padding: 0em 0em 1.5em 0em;
+    text-align: center;
+    color: #D6B831;
 }

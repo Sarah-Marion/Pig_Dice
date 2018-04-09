@@ -7,7 +7,6 @@
     padding-bottom: 0;
 }
 
-
 body,
 html {
     background-image: url("../images/background.jpg");
@@ -38,7 +37,6 @@ html {
     right: 0.5em;
     font-size: 70px;
     text-decoration: none;
-    
 }
 
 .menutop {
@@ -51,9 +49,11 @@ html {
     width: 0;
     color: white;
 }
-.closing a{
+
+.closing a {
     color: rgb(206, 176, 45);
 }
+
 input.form-control {
     width: 30%;
 }
@@ -118,7 +118,6 @@ input.form-control {
     float: right;
     padding: 1%;
 }
-
 
 .btn {
     padding: 1%;
@@ -203,7 +202,8 @@ input.form-control {
     text-align: center;
     color: #D6B831;
 }
+
 .content {
     height: 10vh;
-    z-index:2;
+    z-index: 2;
 }

@@ -6,6 +6,7 @@
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Chicle" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Chicle|Indie+Flower" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Covered By Your Grace' rel='stylesheet'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -20,11 +21,12 @@
         <h1>PIG DICE</h1>
       </div>
     </div>
+    <button id="rulesbtn" class="btn btn-info btn-lg">Rules</button>
   </div>
 
   <div class="container-fluid">
     <div class="menutop" id="big-menu">
-      <a href="javascript:void(0)" class="closebtn">&times;</a>
+      <a href="javascript:void(0)" class="closebtn closing">&times;</a>
       <div class="menutop-content">
         <div class="form-hidden">
           <div class="new-player">
@@ -37,31 +39,34 @@
                 <input type="text" class="form-control" id="player2-name" placeholder="Enter Player 2 Name">
               </div>
               <div class="form-group">
-              <input type="number" class="form-control" id="dice_number" placeholder="Number of Dice to Play With">
+                <input type="number" class="form-control" id="dice_number" placeholder="Number of Dice to Play With">
               </div>
               <div class="form-group">
-              <input type="number" class="form-control" id="play_to" placeholder="Number of points to declare winner">
+                <input type="number" class="form-control" id="play_to" placeholder="Number of points to declare winner">
               </div>
               <div class="form-group">
-              <button type="submit" class="btn btn-primary">Start Game</button>
+                <button type="submit" class="btn btn-primary">Start Game</button>
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="container rules">
-    <div class="rule">
-      <h4>Rules/ How To Play</h4>
-      <p>* Enter the names of the players and submit.(/NB For now it's a two-player game.)</p>
-      <p>* Roll the dice as many times as you want to but do so at your own risk. If you roll a 1,you score no points accumulated
-        in that particular round and your turn is over</p>
-      <p>* If you hold before rolling a 1,the points accumulated within that round are tallied and added to your score.</p>
-      <p>* Reach your target selected before your opponent and be declared the winner. HAPPY PLAY-TIME!</p>
+    <div class="menutop" id="rules-slide">
+      <a href="javascript:void(0)" class="close-rules closing">&times;</a>
+      <div class="menutop-content">
+        <div class="rule">
+          <h4>Rules/ How To Play</h4>
+          <p>* Enter the names of the players and submit.(/NB For now it's a two-player game.)</p>
+          <p>* Roll the dice as many times as you want to but do so at your own risk. If you roll a 1,you score no points accumulated
+            in that particular round and your turn is over</p>
+          <p>* If you hold before rolling a 1,the points accumulated within that round are tallied and added to your score.</p>
+          <p>* Reach your target selected before your opponent and be declared the winner. HAPPY PLAY-TIME!</p>
+        </div>
+      </div>
     </div>
   </div>
+
 
   <div class="game">
     <div class="playToScore">
@@ -139,18 +144,18 @@
   <!-- <div class="container-footer"> -->
   <footer class="footer">
     <div class="footer-content">
-        <ul class="list-inline">
-            <li class="list-inline-item">
-                <a href="https://twitter.com/sarah_ndeti" target="_blank">
-                    <i class="fa fa-twitter fa-2x"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a href="https://github.com/Sarah-Marion" target="_blank">
-                    <i class="fa fa-github fa-2x"></i>
-                </a>
-            </li>
-        </ul>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a href="https://twitter.com/sarah_ndeti" target="_blank">
+            <i class="fa fa-twitter fa-2x"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://github.com/Sarah-Marion" target="_blank">
+            <i class="fa fa-github fa-2x"></i>
+          </a>
+        </li>
+      </ul>
       <p>@2018 Created by &#169; Sarah Marion. Courtesy of
         <a href="https://moringaschool.com/">Moringa School.</a>
       </p>

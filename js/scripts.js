@@ -36,7 +36,14 @@ $(document).ready(function () {
 
   $(".closebtn").click(function () {
       document.getElementById("big-menu").style.width = "0%";
-      $("#navigation").show();
+    //   $("#navigation").show();
+  });
+  $("#rulesbtn").click(function(){
+      document.getElementById("rules-slide").style.width = "100%";
+  });
+  $(".close-rules").click(function () {
+      document.getElementById("rules-slide").style.width = "0%";
+    //   $("#navigation").show();
   });
 
   $("form#create-player").submit(function (event) {

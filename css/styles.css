@@ -1,33 +1,21 @@
+.jumbotron {
+    background-color: transparent;
+    margin-top: 0%;
+    text-align: center;
+    color: white;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
 body,
 html {
-    background-image: url("../images/choose.png");
+    background-image: url("../images/background.jpg");
     background-size: cover;
     position: relative;
     height: 100%;
     font-family: 'Chicle';
-}
-
-.jumbotron {
-    background: url("../images/die.png");
-    background-position: center;
-    background-size: cover;
-    margin-top: 0%;
-    text-align: center;
-    padding: 3em;
-    color: white;
-    /* border-color: #2e6da4; */
-    border-radius: 25px;
-}
-
-.jumbotron-transparent {
-    background: url("../images/die.png");
-    background-position: center;
-    margin-top: 2%;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 0;
-    z-index: -1;
-    opacity: 0.5;
+    font-size: 20px;
 }
 
 .fixed-top {
@@ -50,6 +38,7 @@ html {
     right: 0.5em;
     font-size: 70px;
     text-decoration: none;
+    
 }
 
 .menutop {
@@ -62,13 +51,18 @@ html {
     width: 0;
     color: white;
 }
-input.form-control{
+.closing a{
+    color: rgb(206, 176, 45);
+}
+input.form-control {
     width: 30%;
 }
-.form-group{
+
+.form-group {
     display: flex;
     justify-content: center;
 }
+
 .menutop-content {
     position: relative;
     top: 25%;
@@ -125,9 +119,6 @@ input.form-control{
     padding: 1%;
 }
 
-.content {
-    height: 10vh;
-}
 
 .btn {
     padding: 1%;
@@ -172,7 +163,7 @@ input.form-control{
 }
 
 .rules {
-    width: 100%;
+    width: 60%;
     padding: 0.5%;
     background-color: rgb(97, 5, 5);
     color: white;
@@ -184,27 +175,35 @@ input.form-control{
     text-align: center;
     color: white;
 }
+
 .list-inline a {
     color: #D6B831;
 }
-.btn{
+
+.btn {
     color: orange;
     outline: none;
-    border-radius:40px;
+    border-radius: 40px;
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.25s ease;
-    &hover{
+    z-index: 2;
+    /* &hover{
         background: $orange;
-    }
+    } */
 }
+
 .footer {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
     padding: 0em 0em 1.5em 0em;
     text-align: center;
     color: #D6B831;
+}
+.content {
+    height: 10vh;
+    z-index:2;
 }
